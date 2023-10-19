@@ -1,0 +1,23 @@
+.cardB{
+    width: 230px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+    
+}
+.compra{
+    display: flex;
+}
+.favLink{
+    margin-left: -12%;
+    margin-top: 2%;
+}
+.envioFree, .fav{
+    width: 30px;
+    height: 30px;
+}
+a{
+    text-decoration: none;
+}
+.btn-detail{
+    margin-bottom: 5%;
+}
