@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import Item from '../Item/Item'
+import { getProducts } from '../../mock/data'
+import { ColeccionContext } from '../../context/CartContext'
 
-export default function ItemCount({stock,initial,onAdd}) {
+export default function ItemCount({id,stock,initial}) {
 
+    const {carrito,setCarrito}=useContext(ColeccionContext)
     const [cantidad,setCantidad]=useState(initial)
 
     const sumar = () =>{
@@ -11,9 +15,13 @@ export default function ItemCount({stock,initial,onAdd}) {
     }
 
     const restar = () =>{
-        if (cantidad > stock){
+        if (cantidad > 1){
             setCantidad(cantidad - 1)
         }
+    }
+
+    const agregarAlCarrito = () => {
+        setCarrito(...[carrito,id]);
     }
 
   return (
@@ -21,7 +29,7 @@ export default function ItemCount({stock,initial,onAdd}) {
         <button className='btn btn-light' onClick={restar}> - </button>
         {cantidad}
         <button className='btn btn-light'onClick={sumar}> + </button>
-        <button className='btn-btn-light' onClick={()=>onAdd(cantidad)} disabled={!stock}>Agregar al carrito</button>
+        <button className='btn btn-light' onClick={agregarAlCarrito}>Agregar al carrito</button>
     </div>
   )
 }

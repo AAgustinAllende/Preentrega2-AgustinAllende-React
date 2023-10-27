@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Item.css"
 import { Link } from 'react-router-dom'
+import { CartContext } from '../../context/CartContext'
 
 
 export default function Item({ id, stock, imagen, precio, titulo }) {
+
+  
+
   return (
     <div>
       <div className="cardB">
